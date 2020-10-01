@@ -83,6 +83,7 @@
     "screenfull": "^4.2.1",
     "simple-statistics": "^3.0.0",
     "stack-source-map": "^1.0.4",
+    "styled-system": "^5.1.5",
     "system-components": "^2.0.3",
     "tether": "^1.2.0",
     "ttag": "^1.7.8",

@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import RetinaImage from "react-retina-image";
 import styled from "styled-components";
-import { color, space, hover } from "styled-system";
+import { color, space } from "styled-system";
 import cx from "classnames";
 import { color as c } from "metabase/lib/colors";
 
@@ -28,7 +28,6 @@ export const IconWrapper = styled("div")`
   "> .icon.icon-share": {
     transform: translateY(-2px);
   }
-  ${hover};
   transition: all 300ms ease-in-out;
 `;
 
@@ -109,7 +108,6 @@ class BaseIcon extends Component {
 const Icon = styled(BaseIcon)`
   ${space}
   ${color}
-  ${hover}
   flex-shrink: 0
 `;
 export default Tooltipify(Icon);

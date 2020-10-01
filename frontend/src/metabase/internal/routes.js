@@ -11,6 +11,7 @@ import {
 } from "metabase/containers/ErrorPages";
 
 import ModalsPage from "./pages/ModalsPage";
+import TypePage from "./pages/TypePage";
 
 import fitViewport from "metabase/hoc/FitViewPort";
 
@@ -60,6 +61,11 @@ const InternalLayout = fitViewport(({ children }) => {
               </Link>
             </li>
           ))}
+          <li>
+            <Link className="link mx2" to={"/_internal/type"}>
+              Type
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="flex flex-full">{children}</div>
@@ -79,6 +85,7 @@ export default (
         )),
     )}
     <Route path="modals" component={ModalsPage} />
+    <Route path="type" component={TypePage} />
     <Route path="errors">
       <Route path="404" component={NotFound} />
       <Route path="archived" component={Archived} />
