@@ -80,7 +80,7 @@ const TypePage = () => (
               <Text>14px</Text>
             </td>
             <td>
-              <Text>700</Text>
+              <Text>400</Text>
             </td>
           </tr>
         </tbody>
@@ -91,7 +91,7 @@ const TypePage = () => (
         Components
       </Subhead>
       <Box mb={3}>
-        <Subhead id="heading">Heading</Subhead>
+        <Subhead>Heading</Subhead>
         <Text>Used for page headings, etc</Text>
 
         <Example>
@@ -99,7 +99,7 @@ const TypePage = () => (
         </Example>
       </Box>
       <Box mb={3}>
-        <Subhead id="heading">Subhead</Subhead>
+        <Subhead>Subhead</Subhead>
         <Text>
           A smaller, but still noticeable heading. Good to use for section
           headings, or sidebar titles.
@@ -109,17 +109,11 @@ const TypePage = () => (
         </Example>
       </Box>
       <Box mb={3}>
-        <Subhead id="heading">Label</Subhead>
+        <Subhead>Label</Subhead>
         <Text>
           A UI label style type element. Good to use for most anything that
           someone will click on or that represents a label for a section orc
         </Text>
-        <Label>Example</Label>
-        <pre>
-          <code>
-            <Heading>Title o' the page</Heading>
-          </code>
-        </pre>
       </Box>
     </Box>
   </Box>
