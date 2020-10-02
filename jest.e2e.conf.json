@@ -1,6 +1,5 @@
 {
   "moduleNameMapper": {
-    "^enzyme$": "enzyme-2",
     "\\.(css|less)$": "<rootDir>/frontend/test/__mocks__/styleMock.js",
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/frontend/test/__mocks__/fileMock.js",
     "^promise-loader\\?global\\!metabase\\/lib\\/ga-metadata$": "<rootDir>/frontend/src/metabase/lib/ga-metadata.js"
@@ -13,6 +12,7 @@
     "<rootDir>/frontend/test/__support__/mocks.js",
     "<rootDir>/frontend/test/register-visualizations.js"
   ],
+  "setupTestFrameworkScriptFile": "<rootDir>/frontend/test/enzyme-setup.js",
   "globals": {
     "ace": {},
     "ga": {},
