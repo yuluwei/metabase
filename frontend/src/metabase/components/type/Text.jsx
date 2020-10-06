@@ -1,18 +1,22 @@
 import styled from "styled-components";
-import { space, typography } from "styled-system";
+import { space, fontSize, fontWeight, letterSpacing } from "styled-system";
 import { color } from "metabase/lib/colors";
 
 const Text = styled.div`
   ${space};
-  ${typography};
+  ${fontSize};
+  ${fontWeight};
+  ${letterSpacing};
   color: ${props => color(`text-${props.color}`)};
 `;
 
 Text.defaultProps = {
-  fontSize: "14px",
+  fontSize: 14,
   color: "medium",
   mb: "8px",
   mt: "4px",
 };
+
+Text.propTypes = {};
 
 export default Text;
