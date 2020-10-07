@@ -1,27 +1,12 @@
 import React from "react";
-import { Box, Flex } from "grid-styled";
-import reactElementToJSXString from "react-element-to-jsx-string";
-
-import Card from "metabase/components/Card";
+import { Box } from "grid-styled";
 
 import Heading from "metabase/components/type/Heading";
 import Subhead from "metabase/components/type/Subhead";
 import Label from "metabase/components/type/Label";
 import Text from "metabase/components/type/Text";
 
-const Example = ({ children }) => (
-  <Box my={3}>
-    <Label color="medium">Example</Label>
-    <Card>
-      <Flex p={2} align="center" className="border-bottom">
-        {children}
-      </Flex>
-      <pre>
-        <code>{reactElementToJSXString(children)}</code>
-      </pre>
-    </Card>
-  </Box>
-);
+import Example from "metabase/internal/components/Example";
 
 const TypePage = () => (
   <Box className="wrapper wrapper--trim">
