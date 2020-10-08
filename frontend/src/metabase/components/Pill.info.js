@@ -3,6 +3,7 @@ import { Pill, PillWithAdornment } from "metabase/components/Pill";
 import Icon from "metabase/components/Icon";
 
 export const component = Pill;
+export const category = "display";
 
 export const description = `
 Always take your pills
