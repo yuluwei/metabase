@@ -27,7 +27,9 @@
              [core :as stencil]
              [loader :as stencil-loader]]
             [toucan.db :as db])
-  (:import [java.io File IOException]))
+  (:import [java.io File IOException]
+           (java.util Date)
+           (java.text SimpleDateFormat)))
 
 (defn- app-name-trs
   "Return the user configured application name, or Metabase translated
@@ -278,10 +280,12 @@
         (throw (IOException. ex-msg e))))))
 
 (defn- create-result-attachment-map [export-type card-name ^File attachment-file]
-  (let [{:keys [content-type]} (qp.streaming.i/stream-options export-type)]
+  (let [{:keys [content-type]} (qp.streaming.i/stream-options export-type)
+        today (.format (SimpleDateFormat. "yyyyMMdd") (new Date))]
     {:type         :attachment
      :content-type content-type
-     :file-name    (format "%s.%s" card-name (name export-type))
+     ;[yuluwei.gd] 附件名包含导出日期与文件类型后缀
+     :file-name    (format "%s-%s.%s" card-name today (name export-type))
      :content      (-> attachment-file .toURI .toURL)
      :description  (format "More results for '%s'" card-name)}))
 
@@ -337,9 +341,10 @@
   (let [rendered-cards (binding [render/*include-title* true]
                          ;; doall to ensure we haven't exited the binding before the valures are created
                          (mapv #(render/render-pulse-section timezone %) results))
-        message-body   (assoc message-context :pulse (html (vec (cons :div (map :content rendered-cards)))))
+        ;message-body   (assoc message-context :pulse (html (vec (cons :div (map :content rendered-cards)))))
         attachments    (apply merge (map :attachments rendered-cards))]
-    (vec (concat [{:type "text/html; charset=utf-8" :content (stencil/render-file message-template message-body)}]
+    ;[yuluwei.gd] message-body 邮件主体内容替换为空字符串
+    (vec (concat [{:type "text/html; charset=utf-8" :content ""}]
                  (map make-message-attachment attachments)
                  (result-attachments results)))))
 
